@@ -28,3 +28,10 @@ export function getNameFromToken(token: string): string {
   if (!payload) return "";
   return payload.fullName || payload.email || "";
 }
+
+export function getUserIdFromToken(token: string): string {
+  const payload = parseJwt(token);
+  if (!payload) return "";
+  // JWT sub claim holds the user's numeric ID
+  return String(payload.sub || payload.userId || "");
+}
