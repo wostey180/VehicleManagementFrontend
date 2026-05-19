@@ -126,6 +126,7 @@ export default function VerifyEmailPage() {
           <>
             <h2 className="font-[Syne] font-bold text-2xl text-[#EDEAE4] mb-3 tracking-tight">
               Email verified!
+              {/* Verification */}
             </h2>
             <p className="text-sm text-[#9A9490] leading-relaxed mb-6">
               {message}

@@ -83,6 +83,7 @@ export default function RegisterPage() {
           </h1>
           <p className="text-sm text-[#9A9490] mb-8">
             Already registered?{" "}
+            {/* If Already Registered */}
             <Link to="/login" className="text-[#C97B4A] font-medium hover:underline">
               Sign in
             </Link>

@@ -16,7 +16,7 @@ const inputClass =
   "w-full bg-[#1A1815] border border-[#3A3530] rounded-lg px-4 py-3 text-sm text-[#EDEAE4] placeholder-[#3A3530] outline-none focus:border-[#C97B4A] transition-colors font-[DM_Sans]";
 
 export default function LoginPage() {
-  const { login } = useAuth();
+  const { loginWithResponse } = useAuth();
   const navigate = useNavigate();
 
   const [form, setForm] = useState({ email: "", password: "" });
@@ -38,7 +38,7 @@ export default function LoginPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Login failed.");
-      login(data.token);
+      await loginWithResponse(data);
       navigate(roleRedirect[data.role] || "/customer", { replace: true });
     } catch (e: any) {
       setError(e.message);
@@ -62,6 +62,7 @@ export default function LoginPage() {
 
       <div className="flex items-center justify-center p-8 bg-[#0C0B0A]">
         <div className="w-full max-w-md">
+          {/* logo */}
           <Logo />
           <h1 className="font-[Syne] font-bold text-[1.75rem] leading-tight tracking-tight text-[#EDEAE4] mb-1">
             Sign in
